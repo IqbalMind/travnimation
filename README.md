@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🗺️ Travnimation
 
-## Getting Started
+Travnimation is a web application that instantly turns plain-text travel itineraries into beautiful, animated map journey videos. Built entirely with modern web technologies, it allows you to visualize your trips and export them as high-quality MP4 videos (up to 4K 60FPS) directly from your browser—no backend rendering required.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Text-to-Route Generation**: Paste a simple text log (e.g., `20.00 start SPBU Pasteur`) and let the AI parser automatically geocode locations and build a chronological journey.
+- **In-Browser Video Rendering**: Uses the modern WebCodecs API and `mp4-muxer` to export buttery smooth MP4 videos natively on your machine.
+- **Customizable Aesthetics**: Choose between different aspect ratios (16:9, 9:16 vertical for TikTok/Reels), video qualities (720p to 4K), map themes, and transport icons.
+- **Sleek HUD & Overlays**: Displays a real-time tracking HUD (time, distance) and animated milestone popups for stops and rest areas.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: Next.js (App Router), React
+- **Styling**: Tailwind CSS
+- **Maps**: Leaflet (with minimalist OpenStreetMap basemaps)
+- **Video Export**: WebCodecs, `mp4-muxer`, `html-to-image`
+- **Icons**: Lucide React
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 💻 Getting Started
 
-## Learn More
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/IqbalMind/travnimation.git
+   cd travnimation
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to start animating your journeys.
 
-## Deploy on Vercel
+## 🛠️ Usage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Select your preferred travel method (Car, Shuttle, Bus, Plane, etc.).
+2. Set your desired map theme and video settings (Aspect Ratio, Framerate, Quality).
+3. Paste your itinerary into the text box. Example format:
+   ```text
+   20.00 start SPBU Pasteur
+   20.47 Rest Area KM 88 B
+   21.05 Rest Area KM 72B Cipularang
+   Rest Until 21.23
+   22.15 Tol Halim KM 0 Jakarta Bandung
+   22.30 Finish Binus Kemanggisan
+   ```
+4. Click **Generate Route** to preview the animation in real-time.
+5. Click **Download Video** to render the journey into a `.mp4` file directly to your device.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📜 License
+
+MIT License. Feel free to use and modify!
