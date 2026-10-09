@@ -1,26 +1,45 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .card { @apply bg-white/80 backdrop-blur rounded-2xl p-5 shadow-sm border border-white; }
+  .lbl { @apply block text-xs font-bold uppercase tracking-wide text-slate-500 mb-1.5; }
+  .inp { @apply w-full px-3 py-2 rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-rose-300; }
+  .btn { @apply text-white font-semibold px-4 py-2 rounded-xl shadow-lg transition hover:brightness-110 active:scale-95 disabled:opacity-50 disabled:pointer-events-none; }
+  .hud-chip { @apply bg-white/90 backdrop-blur rounded-xl px-3 py-1.5 shadow-lg text-slate-900 flex flex-col justify-center; }
 }
+
+.vehicle {
+  font-size: 34px;
+  line-height: 44px;
+  text-align: center;
+  filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.45));
+  animation: bob 0.5s ease-in-out infinite alternate;
+}
+@keyframes bob { from { margin-top: 0; } to { margin-top: -3px; } }
+
+.stop-pin {
+  width: 28px; height: 28px; display: grid; place-items: center;
+  background: white; border-radius: 9999px; font-size: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.milestone {
+  background: white; color: #0f172a; padding: 10px 16px 12px; border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); border-bottom: 5px solid #f43f5e;
+  min-width: 180px; max-width: 320px; text-align: center;
+  animation: popin 0.35s cubic-bezier(.2, 1.6, .4, 1);
+  transform: rotate(-2deg);
+}
+.milestone-rest { border-bottom-color: #f59e0b; }
+@keyframes popin { from { transform: scale(0.3) rotate(-10deg); opacity: 0; } to { transform: scale(1) rotate(-2deg); opacity: 1; } }
+
+.neon .leaflet-overlay-pane path { filter: drop-shadow(0 0 6px currentColor) drop-shadow(0 0 12px currentColor); }
